@@ -12,26 +12,24 @@ object MergeSortedLists {
 
   def mergeTwoLists(list1: ListNode, list2: ListNode): ListNode = {
     @tailrec
-    def go(l1: ListNode, l2: ListNode, h: ListNode, c: ListNode): ListNode = {
+    def go(l1: ListNode, l2: ListNode, h: ListNode): Unit = {
       if (l1 == null && l2 == null) {
-        h
+        ()
       } else if (l1 == null) {
-        c.next = l2
-        h
+        h.next = l2
       } else if (l2 == null) {
-        c.next = l1
-        h
+        h.next = l1
       } else if (l1.x <= l2.x) {
-        c.next = l1
-        go(l1.next, l2, h, c.next)
+        h.next = l1
+        go(l1.next, l2, h.next)
       } else {
-        c.next = l2
-        go(l1, l2.next, h, c.next)
+        h.next = l2
+        go(l1, l2.next, h.next)
       }
     }
 
     val res = new ListNode(-1)
-    go(list1.next, list2, res, res).next
+    res.next
   }
 }
 
