@@ -2,12 +2,18 @@ package example
 
 import scala.annotation.tailrec
 
-object MergeSortedLists {
+object ListNode {
   def main(args: Array[String]): Unit = {
-    val l1 = new ListNode(1, new ListNode(2, new ListNode(4)))
-    val l2 = new ListNode(1, new ListNode(3, new ListNode(4)))
-    val x = mergeTwoLists(l1, l2)
-    print(x)
+    val node3 = new ListNode(3)
+    val node2 = new ListNode(2)
+    val node0 = new ListNode(0)
+    val node_4 = new ListNode(-4)
+    node3.next = node2
+    node2.next = node0
+    node0.next = node_4
+    node_4.next = node2
+    val res = hasCycle(node3)
+    print(res)
   }
 
   def mergeTwoLists(list1: ListNode, list2: ListNode): ListNode = {
@@ -30,6 +36,23 @@ object MergeSortedLists {
 
     val res = new ListNode(-1)
     res.next
+  }
+
+  def hasCycle(head: ListNode): Boolean = {
+    var res = false
+    var t = head
+    var h = head
+
+    while (h != null && !res) {
+      t = t.next
+      h = h.next
+      if (h != null) {
+        h = h.next
+        res = t.eq(h)
+      }
+    }
+
+    res
   }
 }
 
