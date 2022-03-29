@@ -4,15 +4,10 @@ import scala.annotation.tailrec
 
 object BinarySearch {
   def main(args: Array[String]): Unit = {
-    val x = Array(
-      Array(1, 1, 0, 0, 0),
-      Array(1, 1, 1, 1, 0),
-      Array(1, 0, 0, 0, 0),
-      Array(1, 1, 0, 0, 0),
-      Array(1, 1, 1, 1, 1)
-    )
+    val x =
+      Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 13, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
 
-    println(kWeakestRows(x, 3).mkString(", "))
+    println(search(x, 13))
   }
 
   def search(nums: Array[Int], target: Int): Int = {
