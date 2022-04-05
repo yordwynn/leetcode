@@ -6,15 +6,9 @@ object ListNode {
   def main(args: Array[String]): Unit = {
     val l = new ListNode(
       1,
-      new ListNode(
-        2,
-        new ListNode(
-          3,
-          new ListNode(3, new ListNode(4, new ListNode(4, new ListNode(5))))
-        )
-      )
+      new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5))))
     )
-    val res = deleteDuplicates(l)
+    val res = swapNodes(l, 2)
     print(res)
   }
 
@@ -164,6 +158,30 @@ object ListNode {
     }
 
     res
+  }
+
+  def swapNodes(head: ListNode, k: Int): ListNode = {
+    var a = head
+    var i = 1
+
+    while (i < k) {
+      a = a.next
+      i = i + 1
+    }
+
+    var b = head
+    var t = a
+
+    while (t.next != null) {
+      b = b.next
+      t = t.next
+    }
+
+    val buf = a.x
+    a.x = b.x
+    b.x = buf
+
+    head
   }
 }
 
