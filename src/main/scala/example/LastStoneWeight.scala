@@ -9,7 +9,7 @@ object LastStoneWeight {
 
   def lastStoneWeight(stones: Array[Int]): Int = {
     val weights = scala.collection.mutable.PriorityQueue[Int]()
-    stones.foreach(weight => weights.enqueue(weight))
+    weights.enqueue(stones: _*)
 
     while (weights.size > 1) {
       val y = weights.dequeue
