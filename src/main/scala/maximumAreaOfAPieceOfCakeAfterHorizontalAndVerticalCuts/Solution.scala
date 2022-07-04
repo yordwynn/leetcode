@@ -1,4 +1,4 @@
-package MaximumAreaOfAPieceOfCakeAfterHorizontalAndVerticalCuts
+package maximumAreaOfAPieceOfCakeAfterHorizontalAndVerticalCuts
 
 import scala.annotation.tailrec
 

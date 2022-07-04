@@ -1,4 +1,4 @@
-package MaximumAreaOfAPieceOfCakeAfterHorizontalAndVerticalCuts
+package maximumAreaOfAPieceOfCakeAfterHorizontalAndVerticalCuts
 
 import org.scalatest.flatspec.AnyFlatSpec
 
