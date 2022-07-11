@@ -7,7 +7,7 @@ class SolutionTest extends AnyFlatSpec {
     val nums = Array(1, -1, -2, 4, -7, 3)
     val k = 2
 
-    assert(Solution.maxResultSlow(nums, k) == 7)
+    assert(Solution.maxResult(nums, k) == 7)
   }
 
   "example 2" should "return 17" in {
