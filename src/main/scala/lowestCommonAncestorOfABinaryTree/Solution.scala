@@ -1,6 +1,6 @@
 package lowestCommonAncestorOfABinaryTree
 
-import example.TreeNode
+import tree.TreeNode
 
 // 236. Lowest Common Ancestor of a Binary Tree
 object Solution {

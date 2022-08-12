@@ -1,7 +1,7 @@
 package lowestCommonAncestorOfABinaryTree
 
-import example.TreeNode
 import org.scalatest.flatspec.AnyFlatSpec
+import tree.TreeNode
 
 class SolutionTest extends AnyFlatSpec {
   val root = new TreeNode(

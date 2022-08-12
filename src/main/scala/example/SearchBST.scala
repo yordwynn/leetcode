@@ -1,5 +1,7 @@
 package example
 
+import tree.TreeNode
+
 import scala.annotation.tailrec
 
 object SearchBST {

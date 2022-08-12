@@ -1,6 +1,6 @@
 package constructBinaryTreeFromPreorderAndInorderTraversal
 
-import example.TreeNode
+import tree.TreeNode
 
 import scala.collection.immutable.HashMap
 

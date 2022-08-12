@@ -1,7 +1,7 @@
 package constructBinaryTreeFromPreorderAndInorderTraversal
 
-import example.TreeNode
 import org.scalatest.flatspec.AnyFlatSpec
+import tree.TreeNode
 
 class SolutionTest extends AnyFlatSpec {
   "example 1" should "return [3,9,20,null,null,15,7]" in {

@@ -1,6 +1,6 @@
 package flattenBinaryTreeToLinkedList
 
-import example.TreeNode
+import tree.TreeNode
 
 import scala.annotation.tailrec
 

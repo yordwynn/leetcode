@@ -1,7 +1,7 @@
 package validateBinarySearchTree
 
-import example.TreeNode
 import org.scalatest.flatspec.AnyFlatSpec
+import tree.TreeNode
 
 class SolutionTest extends AnyFlatSpec {
   "example 1" should "return true" in {

@@ -1,6 +1,6 @@
 package binaryTreeRightSideView
 
-import example.TreeNode
+import tree.TreeNode
 
 import scala.annotation.tailrec
 import scala.collection.immutable.Queue

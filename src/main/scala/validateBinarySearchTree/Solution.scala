@@ -1,6 +1,6 @@
 package validateBinarySearchTree
 
-import example.TreeNode
+import tree.TreeNode
 
 // 98. Validate Binary Search Tree
 object Solution {

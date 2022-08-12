@@ -1,7 +1,7 @@
 package flattenBinaryTreeToLinkedList
 
-import example.TreeNode
 import org.scalatest.flatspec.AnyFlatSpec
+import tree.TreeNode
 
 class SolutionTest extends AnyFlatSpec {
   "example 1" should "return [1,null,2,null,3,null,4,null,5,null,6]" in {

@@ -5,9 +5,6 @@ import scala.annotation.tailrec
 object Solution {
 
   /** 240. Search a 2D Matrix II
-    * @param matrix
-    * @param target
-    * @return
     */
   def searchMatrix(matrix: Array[Array[Int]], target: Int): Boolean = {
     @tailrec
