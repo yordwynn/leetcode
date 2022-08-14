@@ -33,48 +33,57 @@ object Solution {
 
     @tailrec
     def bfs(
-        queue: Queue[List[String]],
+        queue: Queue[(String, String)],
+        lengths: Map[String, Int] = Map.from(
+          wordList
+            .zip(List.fill(wordList.length)(Int.MaxValue))
+            .appended(beginWord, Int.MaxValue)
+        ),
+        paths: Map[String, Set[String]] =
+          Map.from(wordList.zip(List.fill(wordList.length)(Set.empty))),
         visited: HashSet[String] = HashSet.empty
-    ): Option[List[String]] = {
+    ): Map[String, Set[String]] = {
       if (queue.isEmpty) {
-        None
+        paths
       } else {
-        val (path, dequeued) = queue.dequeue
-        val lastWord = path.head
+        val ((prev, word), dequeued) = queue.dequeue
 
-        if (lastWord == endWord)
-          Some(path)
-        else {
-          val next = adjustmentHash(lastWord)
-          val newQueue =
-            next.foldLeft(dequeued)((res, item) =>
-              if (!visited.contains(item)) res.enqueue(item +: path) else res
-            )
-          bfs(newQueue, visited + lastWord)
-        }
+        val next = adjustmentHash(word)
+        val newQueue =
+          next.foldLeft(dequeued)((res, item) =>
+            if (!visited.contains(item)) res.enqueue(word -> item) else res
+          )
+        val newLength = lengths.getOrElse(prev, 0) + 1
+        val newLengths = lengths.updated(word, newLength.min(lengths(word)))
+        val newRes: Map[String, Set[String]] =
+          if (lengths(word) > newLength) paths.updated(word, Set(prev))
+          else if (lengths(word) == newLength)
+            paths.updated(word, paths(word) + prev)
+          else paths
+        bfs(
+          newQueue,
+          newLengths,
+          newRes,
+          visited + word
+        )
       }
     }
 
     def backtracking(
-        len: Int,
-        res: List[String],
-        visited: HashSet[String] = HashSet.empty
+        paths: Map[String, Set[String]],
+        res: List[String]
     ): List[List[String]] = {
-      adjustmentHash(res.head).flatMap(word => {
-        if (res.length + 1 > len || visited.contains(word))
-          List.empty
-        else if (word == endWord)
-          List((word +: res).reverse)
+      val x = paths.getOrElse(res.head, Set.empty).toList
+      x.flatMap(word => {
+        if (word == beginWord)
+          List(word +: res)
         else
-          backtracking(len, word +: res, visited + word)
+          backtracking(paths, word +: res)
       })
     }
 
-    val x = bfs(Queue.empty.enqueue(List(beginWord)))
-    val y =
-      x.fold(List.empty[List[String]])(shortest =>
-        backtracking(shortest.length, List(beginWord))
-      )
+    val x = bfs(Queue.empty.enqueue("" -> beginWord))
+    val y = backtracking(x, List(endWord))
     y
   }
 }
