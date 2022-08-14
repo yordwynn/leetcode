@@ -8,8 +8,8 @@ class SolutionTest extends AnyFlatSpec {
     val endWord = "cog"
     val wordList = List("hot", "dot", "dog", "lot", "log", "cog")
     val res = List(
-      List("hit", "hot", "dot", "dog", "cog"),
-      List("hit", "hot", "lot", "log", "cog")
+      List("hit", "hot", "lot", "log", "cog"),
+      List("hit", "hot", "dot", "dog", "cog")
     )
     assert(Solution.findLadders(beginWord, endWord, wordList) == res)
   }

@@ -55,38 +55,25 @@ object Solution {
       }
     }
 
-    @tailrec
     def backtracking(
-        queue: Queue[List[String]],
-        res: List[List[String]],
         len: Int,
+        res: List[String],
         visited: HashSet[String] = HashSet.empty
     ): List[List[String]] = {
-      if (queue.isEmpty)
-        res
-      else {
-        val (current, deq) = queue.dequeue
-        if (current.head == endWord)
-          backtracking(deq, current.reverse +: res, len)
-        else if (current.length >= len)
-          backtracking(deq, res, len)
-        else {
-          val newQ = adjustmentHash(current.head).foldLeft(deq)((d, item) =>
-            if (!visited.contains(item)) d.enqueue(item +: current) else d
-          )
-          backtracking(newQ, res, len, visited + current.head)
-        }
-      }
+      adjustmentHash(res.head).flatMap(word => {
+        if (res.length + 1 > len || visited.contains(word))
+          List.empty
+        else if (word == endWord)
+          List((word +: res).reverse)
+        else
+          backtracking(len, word +: res, visited + word)
+      })
     }
 
     val x = bfs(Queue.empty.enqueue(List(beginWord)))
     val y =
       x.fold(List.empty[List[String]])(shortest =>
-        backtracking(
-          Queue.empty.enqueue(List(beginWord)),
-          List.empty[List[String]],
-          shortest.length
-        )
+        backtracking(shortest.length, List(beginWord))
       )
     y
   }
