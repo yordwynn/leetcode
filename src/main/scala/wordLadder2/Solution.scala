@@ -32,31 +32,61 @@ object Solution {
       )((h, word) => h.updated(word, findAdjustments(wordList, word)))
 
     @tailrec
-    def go(
+    def bfs(
         queue: Queue[List[String]],
-        visited: HashSet[String] = HashSet.empty,
-        res: List[List[String]] = Nil,
-        minLength: Int = Int.MaxValue
-    ): List[List[String]] = {
-      if (queue.isEmpty || queue.head.length > minLength) {
-        res
+        visited: HashSet[String] = HashSet.empty
+    ): Option[List[String]] = {
+      if (queue.isEmpty) {
+        None
       } else {
         val (path, dequeued) = queue.dequeue
         val lastWord = path.head
 
         if (lastWord == endWord)
-          go(dequeued, visited, path +: res, path.length)
+          Some(path)
         else {
           val next = adjustmentHash(lastWord)
           val newQueue =
             next.foldLeft(dequeued)((res, item) =>
-              if (visited.contains(item)) res else res.enqueue(item +: path)
+              if (!visited.contains(item)) res.enqueue(item +: path) else res
             )
-          go(newQueue, visited + lastWord, res, minLength)
+          bfs(newQueue, visited + lastWord)
         }
       }
     }
 
-    go(Queue.empty.enqueue(List(beginWord))).map(_.reverse)
+    def backtracking(
+        queue: Queue[List[String]],
+        res: List[List[String]],
+        len: Int,
+        visited: HashSet[String] = HashSet.empty
+    ): List[List[String]] = {
+      if (queue.isEmpty)
+        res
+      else {
+        val (current, deq) = queue.dequeue
+        if (current.head == endWord)
+          backtracking(deq, current.reverse +: res, len)
+        else if (current.length >= len)
+          backtracking(deq, res, len)
+        else {
+          val newQ = adjustmentHash(current.head).foldLeft(deq)((d, item) =>
+            if (!visited.contains(item)) d.enqueue(item +: current) else d
+          )
+          backtracking(newQ, res, len, visited + current.head)
+        }
+      }
+    }
+
+    val x = bfs(Queue.empty.enqueue(List(beginWord)))
+    val y =
+      x.fold(List.empty[List[String]])(shortest =>
+        backtracking(
+          Queue.empty.enqueue(List(beginWord)),
+          List.empty[List[String]],
+          shortest.length
+        )
+      )
+    y
   }
 }
