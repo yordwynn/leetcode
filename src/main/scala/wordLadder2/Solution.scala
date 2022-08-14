@@ -30,6 +30,7 @@ object Solution {
       wordList.foldLeft(
         HashMap.from(List(beginWord -> findAdjustments(wordList, beginWord)))
       )((h, word) => h.updated(word, findAdjustments(wordList, word)))
+
     @tailrec
     def go(
         queue: Queue[List[String]],
