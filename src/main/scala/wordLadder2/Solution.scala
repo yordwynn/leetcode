@@ -55,6 +55,7 @@ object Solution {
       }
     }
 
+    @tailrec
     def backtracking(
         queue: Queue[List[String]],
         res: List[List[String]],
