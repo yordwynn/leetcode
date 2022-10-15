@@ -1,4 +1,4 @@
-package сountVowelsPermutation
+package countVowelsPermutation
 
 import scala.annotation.tailrec
 

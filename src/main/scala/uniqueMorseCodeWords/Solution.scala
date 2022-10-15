@@ -1,5 +1,6 @@
 package uniqueMorseCodeWords
 
+// 804. Unique Morse Code Words
 object Solution {
   private val morse: Array[String] = Array(
     ".-",

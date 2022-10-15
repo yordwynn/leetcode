@@ -13,12 +13,17 @@ class SolutionTest extends AnyFlatSpec {
     assert(!Solution.isPowerOfThree(n))
   }
 
-  "example 3" should "return true" in {
+  "example 3" should "return false" in {
+    val n = -1
+    assert(!Solution.isPowerOfThree(n))
+  }
+
+  "example 4" should "return true" in {
     val n = 9
     assert(Solution.isPowerOfThree(n))
   }
 
-  "example 4" should "return true" in {
+  "example 5" should "return true" in {
     val n = 243
     assert(Solution.isPowerOfThree(n))
   }

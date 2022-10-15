@@ -2,6 +2,7 @@ package firstUniqueCharacterInAString
 
 import scala.annotation.tailrec
 
+// 387. First Unique Character in a String
 object Solution {
   def firstUniqChar(s: String): Int = {
     val counts = s.foldLeft(Map.empty[Char, Int])((acc, item) => {
