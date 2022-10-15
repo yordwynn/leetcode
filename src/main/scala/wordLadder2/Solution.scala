@@ -70,20 +70,19 @@ object Solution {
     }
 
     def backtracking(
-        paths: Map[String, Set[String]],
-        res: List[String]
-    ): List[List[String]] = {
-      val x = paths.getOrElse(res.head, Set.empty).toList
-      x.flatMap(word => {
-        if (word == beginWord)
-          List(word +: res)
-        else
-          backtracking(paths, word +: res)
-      })
+        paths: Map[String, Set[String]]
+    )(last: String): Set[List[String]] = {
+      if (last == beginWord)
+        Set(List(beginWord))
+      else
+        paths
+          .getOrElse(last, Set.empty)
+          .flatMap(backtracking(paths))
+          .map(last :: _)
     }
 
     val x = bfs(Queue.empty.enqueue("" -> beginWord))
-    val y = backtracking(x, List(endWord))
+    val y = backtracking(x)(endWord).toList.map(_.reverse)
     y
   }
 }

@@ -23,4 +23,10 @@ class SolutionTest extends AnyFlatSpec {
 
     assert(Solution.goodNodes(root) == 3)
   }
+
+  "example 3" should "return 1" in {
+    val root = new TreeNode(1)
+
+    assert(Solution.goodNodes(root) == 1)
+  }
 }

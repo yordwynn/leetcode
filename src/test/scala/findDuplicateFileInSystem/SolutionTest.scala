@@ -22,4 +22,17 @@ class SolutionTest extends AnyFlatSpec {
     )
     assert(eq(Solution.findDuplicate(paths), res))
   }
+
+  "example 2" should "return [[\"root/a/2.txt\",\"root/c/d/4.txt\"],[\"root/a/1.txt\",\"root/c/3.txt\"]]" in {
+    val paths = Array(
+      "root/a 1.txt(abcd) 2.txt(efgh)",
+      "root/c 3.txt(abcd)",
+      "root/c/d 4.txt(efgh)"
+    )
+    val res = List(
+      List("root/a/2.txt", "root/c/d/4.txt"),
+      List("root/a/1.txt", "root/c/3.txt")
+    )
+    assert(eq(Solution.findDuplicate(paths), res))
+  }
 }
