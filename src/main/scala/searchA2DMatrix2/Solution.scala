@@ -2,10 +2,8 @@ package searchA2DMatrix2
 
 import scala.annotation.tailrec
 
+// 240. Search a 2D Matrix II
 object Solution {
-
-  /** 240. Search a 2D Matrix II
-    */
   def searchMatrix(matrix: Array[Array[Int]], target: Int): Boolean = {
     @tailrec
     def go(i: Int, j: Int): Boolean = {

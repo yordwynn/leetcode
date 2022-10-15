@@ -2,21 +2,34 @@ package lowestCommonAncestorOfABinarySearchTree
 
 import tree.TreeNode
 
-import scala.annotation.tailrec
-
 // 235. Lowest Common Ancestor of a Binary Search Tree
 object Solution {
-  @tailrec
   def lowestCommonAncestor(
       root: TreeNode,
       p: TreeNode,
       q: TreeNode
   ): TreeNode = {
-    if (root.value > p.value && root.value > q.value)
-      lowestCommonAncestor(root.left, p, q)
-    else if (root.value < p.value && root.value < q.value)
-      lowestCommonAncestor(root.right, p, q)
-    else
-      root
+    def findNode(
+        node: TreeNode,
+        target: TreeNode,
+        res: Seq[TreeNode]
+    ): (Boolean, Seq[TreeNode]) = {
+      if (node == null)
+        (false, res)
+      else if (node.value == target.value)
+        (true, node +: res)
+      else {
+        val inLeft = findNode(node.left, target, node +: res)
+        if (inLeft._1)
+          inLeft
+        else
+          findNode(node.right, target, node +: res)
+      }
+    }
+
+    val pPath = findNode(root, p, Nil)._2.reverse
+    val qPath = findNode(root, q, Nil)._2.reverse
+
+    pPath.zip(qPath).findLast(x => x._1 == x._2).get._1
   }
 }

@@ -11,7 +11,7 @@ class SolutionTest extends AnyFlatSpec {
     assert(Solution.partition(head, x) == ListNode(1, 2, 2, 4, 3, 5))
   }
 
-  "example 2" should "return [1, 2]" in {
+  "example 2" should "return [1,2]" in {
     val head = ListNode(2, 1)
     val x = 2
 

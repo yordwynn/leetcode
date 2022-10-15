@@ -3,7 +3,7 @@ package flattenBinaryTreeToLinkedList
 import org.scalatest.flatspec.AnyFlatSpec
 import tree.TreeNode
 
-class SolutionTest extends AnyFlatSpec {
+class TailrecSolutionTest extends AnyFlatSpec {
   "example 1" should "return [1,null,2,null,3,null,4,null,5,null,6]" in {
     val root = new TreeNode(
       1,
@@ -23,7 +23,7 @@ class SolutionTest extends AnyFlatSpec {
       )
     )
 
-    Solution.flatten(root)
+    TailrecSolution.flatten(root)
     assert(root == res)
   }
 
@@ -31,7 +31,7 @@ class SolutionTest extends AnyFlatSpec {
     val root = null
     val res = null
 
-    Solution.flatten(root)
+    TailrecSolution.flatten(root)
     assert(root == res)
   }
 
@@ -39,7 +39,7 @@ class SolutionTest extends AnyFlatSpec {
     val root = new TreeNode(0)
     val res = new TreeNode(0)
 
-    Solution.flatten(root)
+    TailrecSolution.flatten(root)
     assert(root == res)
   }
 }

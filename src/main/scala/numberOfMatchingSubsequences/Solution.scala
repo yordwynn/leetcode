@@ -2,6 +2,7 @@ package numberOfMatchingSubsequences
 
 import scala.collection.immutable.HashMap
 
+// 792. Number of Matching Subsequences
 object Solution {
   def numMatchingSubseq(s: String, words: Array[String]): Int = {
     val substrings =

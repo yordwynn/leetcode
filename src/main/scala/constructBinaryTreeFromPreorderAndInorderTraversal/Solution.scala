@@ -4,6 +4,7 @@ import tree.TreeNode
 
 import scala.collection.immutable.HashMap
 
+// 105. Construct Binary Tree from Preorder and Inorder Traversal
 object Solution {
   def buildTree(preorder: Array[Int], inorder: Array[Int]): TreeNode = {
     val inorderMap = HashMap.from(inorder.zipWithIndex)

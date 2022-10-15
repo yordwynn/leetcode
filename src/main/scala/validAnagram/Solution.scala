@@ -2,6 +2,7 @@ package validAnagram
 
 import scala.collection.immutable.HashMap
 
+// 242. Valid Anagram
 object Solution {
   def isAnagram(s: String, t: String): Boolean = {
     def count(word: String): Map[Char, Int] =

@@ -2,6 +2,7 @@ package rangeSumQueryMutable
 
 import scala.annotation.tailrec
 
+// 307. Range Sum Query - Mutable
 class NumArray(_nums: Array[Int]) {
   def update(index: Int, `val`: Int): Unit = {
     _nums(index) = `val`

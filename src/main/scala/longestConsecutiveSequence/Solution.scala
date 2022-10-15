@@ -3,6 +3,7 @@ package longestConsecutiveSequence
 import scala.annotation.tailrec
 import scala.collection.immutable.HashSet
 
+// 128. Longest Consecutive Sequence
 object Solution {
   def longestConsecutive(nums: Array[Int]): Int = {
     val hashed = HashSet.from(nums)

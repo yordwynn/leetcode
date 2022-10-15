@@ -2,6 +2,7 @@ package pascalTriangle
 
 import scala.annotation.tailrec
 
+// 118. Pascal's Triangle
 object Solution {
   def generate(numRows: Int): List[List[Int]] = {
     @tailrec

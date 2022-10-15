@@ -1,5 +1,6 @@
 package minCostClimbingStairs
 
+// 746. Min Cost Climbing Stairs
 object Solution {
   def minCostClimbingStairs(cost: Array[Int]): Int = {
     val dp = Array.fill(cost.length)(Int.MaxValue)

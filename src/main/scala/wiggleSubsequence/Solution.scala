@@ -2,6 +2,7 @@ package wiggleSubsequence
 
 import scala.annotation.tailrec
 
+// 376. Wiggle Subsequence
 object Solution {
   def wiggleMaxLength(nums: Array[Int]): Int = {
     @tailrec

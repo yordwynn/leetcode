@@ -1,5 +1,6 @@
 package matchsticksToSquare
 
+// 473. Matchsticks to Square
 object Solution {
   def makesquare(matchsticks: Array[Int]): Boolean = {
     def go(i: Int, j: Int, sides: Array[Int], target: Int): Boolean = {

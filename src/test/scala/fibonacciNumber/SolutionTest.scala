@@ -14,4 +14,10 @@ class SolutionTest extends AnyFlatSpec {
 
     assert(Solution.fib(n) == 2)
   }
+
+  "example 3" should "return 4" in {
+    val n = 4
+
+    assert(Solution.fib(n) == 3)
+  }
 }

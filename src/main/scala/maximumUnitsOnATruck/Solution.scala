@@ -1,5 +1,6 @@
 package maximumUnitsOnATruck
 
+// 1710. Maximum Units on a Truck
 object Solution {
   def maximumUnits(boxTypes: Array[Array[Int]], truckSize: Int): Int = {
     case class Result(units: Int, capacity: Int)

@@ -2,6 +2,7 @@ package outOfBoundaryPaths
 
 import scala.annotation.tailrec
 
+// 576. Out of Boundary Paths
 object Solution {
   def findPaths(
       m: Int,

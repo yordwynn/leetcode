@@ -2,6 +2,7 @@ package maximumAreaOfAPieceOfCakeAfterHorizontalAndVerticalCuts
 
 import scala.annotation.tailrec
 
+// 1465. Maximum Area of a Piece of Cake After Horizontal and Vertical Cuts
 object Solution {
   def maxCut(cuts: Array[Int], border: Int): Long = {
     @tailrec

@@ -3,6 +3,7 @@ package maxAreaOfIsland
 import scala.annotation.tailrec
 import scala.collection.mutable
 
+// 695. Max Area of Island
 object Solution {
   def maxAreaOfIsland(grid: Array[Array[Int]]): Int = {
     val visited = mutable.HashSet[(Int, Int)]()
