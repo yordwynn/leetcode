@@ -1,6 +1,6 @@
 package deleteNodeInALinkedList
 
-import example.ListNode
+import leetcode.utils.ListNode
 
 // 237. Delete Node in a Linked List
 object Solution {

@@ -1,6 +1,7 @@
-package example
+package threeSumWithMultiplicity
 
-object ThreeSumWithMultiplicity {
+// 923. 3Sum With Multiplicity
+object Solution {
   def threeSumMulti(arr: Array[Int], target: Int): Int = {
     val mod = 1000000007
     var i = 0

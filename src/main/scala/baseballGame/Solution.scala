@@ -1,7 +1,7 @@
-package example
+package baseballGame
 
-object CalPoints {
-  def main(args: Array[String]): Unit = {}
+// 682. Baseball Game
+object Solution {
   def calPoints(ops: Array[String]): Int = {
     ops
       .foldLeft(List.empty[Int])((rec, item) =>

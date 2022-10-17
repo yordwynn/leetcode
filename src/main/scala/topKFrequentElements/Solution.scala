@@ -1,13 +1,7 @@
-package example
+package topKFrequentElements
 
-object TopKFrequent {
-  def main(args: Array[String]): Unit = {
-    val nums = Array(1, 1, 1, 2, 2, 3)
-    val k = 2
-
-    println(topKFrequent(nums, k).mkString(", "))
-  }
-
+// 347. Top K Frequent Elements
+object Solution {
   def topKFrequent(nums: Array[Int], k: Int): Array[Int] = {
     val frequencies = nums.foldLeft(Map.empty[Int, Int])((map, n) => {
       val cnt = map.getOrElse(n, 0)

@@ -1,11 +1,7 @@
-package example
+package shift2dGreed
 
-object ShiftGrid {
-  def main(args: Array[String]): Unit = {
-    val grid = Array(Array(1, 2, 3), Array(4, 5, 6), Array(7, 8, 9))
-    val k = 9
-    println(shiftGrid(grid, k).map(_.mkString(", ")).mkString("\n"))
-  }
+// 1260. Shift 2D Grid
+object Solution {
   def shiftGrid(grid: Array[Array[Int]], k: Int): List[List[Int]] = {
     val m = grid.length
     val n = grid(0).length

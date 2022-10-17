@@ -1,17 +1,10 @@
 package example
 
+import leetcode.utils.ListNode
+
 import scala.annotation.tailrec
 
 object ListNode {
-  def main(args: Array[String]): Unit = {
-    val l = new ListNode(
-      1,
-      new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5))))
-    )
-    val res = swapNodes(l, 2)
-    print(res)
-  }
-
   def mergeTwoLists(list1: ListNode, list2: ListNode): ListNode = {
     @tailrec
     def go(l1: ListNode, l2: ListNode, h: ListNode): Unit = {
@@ -160,30 +153,6 @@ object ListNode {
     res
   }
 
-  def swapNodes(head: ListNode, k: Int): ListNode = {
-    var a = head
-    var i = 1
-
-    while (i < k) {
-      a = a.next
-      i = i + 1
-    }
-
-    var b = head
-    var t = a
-
-    while (t.next != null) {
-      b = b.next
-      t = t.next
-    }
-
-    val buf = a.x
-    a.x = b.x
-    b.x = buf
-
-    head
-  }
-
   def apply(xs: Int*): ListNode = {
     val h = new ListNode()
     xs.foldLeft(h)((acc, x) => {
@@ -191,18 +160,5 @@ object ListNode {
       acc.next
     })
     h.next
-  }
-}
-
-class ListNode(_x: Int = 0, _next: ListNode = null) {
-  var next: ListNode = _next
-  var x: Int = _x
-
-  override def equals(obj: Any): Boolean = obj match {
-    case t: ListNode =>
-      t.x == this.x && t.next == this.next
-    case null =>
-      this == null
-    case _ => false
   }
 }

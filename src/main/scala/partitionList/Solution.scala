@@ -1,6 +1,6 @@
 package partitionList
 
-import example.ListNode
+import leetcode.utils.ListNode
 
 import scala.annotation.tailrec
 

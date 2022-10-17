@@ -1,12 +1,7 @@
-package example
+package lastStoneWeight
 
-object LastStoneWeight {
-  def main(args: Array[String]): Unit = {
-    val x = Array(1)
-
-    println(lastStoneWeight(x))
-  }
-
+// 1046. Last Stone Weight
+object Solution {
   def lastStoneWeight(stones: Array[Int]): Int = {
     val weights = scala.collection.mutable.PriorityQueue[Int]()
     weights.enqueue(stones: _*)

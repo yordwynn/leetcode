@@ -1,14 +1,7 @@
-package example
+package gameOfLife
 
-object GameOfLife {
-  def main(args: Array[String]): Unit = {
-    val x = Array(
-      Array(1, 1),
-      Array(1, 0)
-    )
-    gameOfLife(x)
-  }
-
+// 289. Game of Life
+object Solution {
   def gameOfLife(board: Array[Array[Int]]): Unit = {
     def getCount(i: Int, j: Int): Int = {
       val m = board.length

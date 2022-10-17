@@ -1,12 +1,7 @@
-package example
+package nextPremutation
 
-object NextPermutation {
-  def main(args: Array[String]): Unit = {
-    val x = Array(1, 5, 1)
-    nextPermutation(x)
-    println(x.mkString)
-  }
-
+// 31. Next Permutation
+object Solution {
   def nextPermutation(nums: Array[Int]): Unit = {
     def swap(i: Int, j: Int): Unit = {
       val b = nums(i)

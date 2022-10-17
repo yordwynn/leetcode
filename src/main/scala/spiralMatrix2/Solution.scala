@@ -1,11 +1,7 @@
-package example
+package spiralMatrix2
 
-object GenerateMatrix {
-  def main(args: Array[String]): Unit = {
-    val n = 4
-    println(generateMatrix(n).map(_.mkString(", ")).mkString("\n"))
-  }
-
+// 59. Spiral Matrix II
+object Solution {
   def generateMatrix(n: Int): Array[Array[Int]] = {
     val stepsCount = n * n
     val steps = Seq(0 -> 1, 1 -> 0, 0 -> -1, -1 -> 0)

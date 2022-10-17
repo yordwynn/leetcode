@@ -1,16 +1,8 @@
-package example
+package validPalindrome2
 
-import scala.annotation.tailrec
-
-object Palindrome2 {
-  def main(args: Array[String]): Unit = {
-    val x =
-      "aguokepatgbnvfqmgmlcupuufxoohdfpgjdmysgvhmvffcnqxjjxqncffvmhvgsymdjgpfdhooxfuupuculmgmqfvnbgtapekouga"
-    print(validPalindrome(x))
-  }
-
+// 680. Valid Palindrome II
+object Solution {
   def validPalindrome(s: String): Boolean = {
-    //@tailrec
     def go(l: Int, r: Int, skipped: Boolean): Boolean = {
       if (l > r)
         true

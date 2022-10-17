@@ -1,11 +1,7 @@
-package example
+package containerWithMostWater
 
-object MaxArea {
-  def main(args: Array[String]): Unit = {
-    val x = Array(1, 1)
-    println(maxArea(x))
-  }
-
+// 11. Container With Most Water
+object Solution {
   def maxArea(height: Array[Int]): Int = {
     def getArea(l: Int, r: Int, width: Int): Int = {
       Math.min(l, r) * width

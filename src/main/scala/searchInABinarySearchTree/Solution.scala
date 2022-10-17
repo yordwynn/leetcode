@@ -1,10 +1,11 @@
-package example
+package searchInABinarySearchTree
 
 import tree.TreeNode
 
 import scala.annotation.tailrec
 
-object SearchBST {
+// 700. Search in a Binary Search Tree
+object Solution {
   @tailrec
   def searchBST(root: TreeNode, `val`: Int): TreeNode = {
     if (root == null)

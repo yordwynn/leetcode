@@ -1,6 +1,6 @@
 package deleteNodeInALinkedList
 
-import example.ListNode
+import leetcode.utils.ListNode
 import org.scalatest.flatspec.AnyFlatSpec
 
 class SolutionTest extends AnyFlatSpec {
