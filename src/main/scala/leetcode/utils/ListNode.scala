@@ -14,6 +14,24 @@ class ListNode(_x: Int = 0, _next: ListNode = null) {
 }
 
 object ListNode {
-  def fromList(list: List[Int]): ListNode =
-    list.foldRight(null: ListNode)((item, acc) => new ListNode(item, acc))
+  def apply(xs: Int*): ListNode = {
+    val h = new ListNode()
+    xs.foldLeft(h)((acc, x) => {
+      acc.next = new ListNode(_x = x)
+      acc.next
+    })
+    h.next
+  }
+
+  def length(head: ListNode): Int = {
+    var res = 0
+    var p = head
+
+    while (p != null) {
+      res = res + 1
+      p = p.next
+    }
+
+    res
+  }
 }

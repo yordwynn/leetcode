@@ -1,12 +1,11 @@
-package example
+package findTheDuplicateNumber
 
-object DuplicateNumber {
-  def main(args: Array[String]): Unit = {
-    val x = Array(3, 1, 3, 4, 2)
-    println(findDuplicate(x))
-  }
+import scala.annotation.tailrec
 
+// 287. Find the Duplicate Number
+object Solution {
   def findDuplicate(nums: Array[Int]): Int = {
+    @tailrec
     def go(l: Int, r: Int): Int = {
       val m = l + (r - l) / 2
       if (l < r) {

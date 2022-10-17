@@ -1,27 +1,7 @@
-package example
+package boatsToSavePeople
 
-object Greedy {
-  def main(args: Array[String]): Unit = {
-    val people = Array(5, 1, 7, 4, 2, 4)
-    print(numRescueBoats(people, 7))
-  }
-
-  def brokenCalc(startValue: Int, target: Int): Int = {
-    var res = 0
-    var current = target
-
-    while (current > startValue) {
-      res = res + 1
-      if (current % 2 != 0) {
-        current = current + 1
-      } else {
-        current = current / 2
-      }
-    }
-
-    res + (startValue - current)
-  }
-
+// 881. Boats to Save People
+object Solution {
   def numRescueBoats(people: Array[Int], limit: Int): Int = {
     val sortedPeople = people.sorted(Ordering.Int.reverse)
     var res = 0

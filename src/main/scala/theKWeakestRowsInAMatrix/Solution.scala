@@ -1,34 +1,9 @@
-package example
+package theKWeakestRowsInAMatrix
 
 import scala.annotation.tailrec
 
-object BinarySearch {
-  def main(args: Array[String]): Unit = {
-    val x =
-      Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 13, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-
-    println(search(x, 13))
-  }
-
-  def search(nums: Array[Int], target: Int): Int = {
-    @tailrec
-    def go(l: Int, r: Int): Int = {
-      if (l > r)
-        -1
-      else {
-        val m = (l + r) / 2
-        if (nums(m) == target)
-          m
-        else if (nums(m) < target)
-          go(m + 1, r)
-        else
-          go(l, m - 1)
-      }
-    }
-
-    go(0, nums.length - 1)
-  }
-
+// 1337. The K Weakest Rows in a Matrix
+object Solution {
   def kWeakestRows(mat: Array[Array[Int]], k: Int): Array[Int] = {
     mat
       .map(findLastOne)
@@ -47,7 +22,7 @@ object BinarySearch {
       .take(k)
   }
 
-  def findLastOne(row: Array[Int]): Int = {
+  private def findLastOne(row: Array[Int]): Int = {
     @tailrec
     def go(l: Int, r: Int): Int = {
       if (l - r == 1)

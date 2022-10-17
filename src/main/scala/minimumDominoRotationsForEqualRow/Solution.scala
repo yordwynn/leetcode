@@ -1,13 +1,7 @@
-package example
+package minimumDominoRotationsForEqualRow
 
-object Domino {
-  def main(args: Array[String]): Unit = {
-    val tops = Array(3, 5, 1, 2, 3)
-    val bottoms = Array(3, 6, 3, 3, 4)
-
-    println(minDominoRotations(tops, bottoms))
-  }
-
+// 1007. Minimum Domino Rotations For Equal Row
+object Solution {
   def minDominoRotations(tops: Array[Int], bottoms: Array[Int]): Int = {
     val topCount = Array.fill(7)(0)
     val botCount = Array.fill(7)(0)

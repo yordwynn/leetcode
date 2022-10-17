@@ -1,29 +1,14 @@
-package example;
+package maximumFrequencyStack;
 
 import java.util.*;
 
+// 895. Maximum Frequency Stack
 class FreqStack {
-    public static void main(String[] args) {
-        FreqStack fs = new FreqStack();
-        fs.push(5);
-        fs.push(7);
-        fs.push(5);
-        fs.push(7);
-        fs.push(4);
-        fs.push(5);
-        System.out.println(fs.pop());
-        System.out.println(fs.pop());
-        System.out.println(fs.pop());
-        System.out.println(fs.pop());
-    }
-
     Map<Integer, Integer> counts = new HashMap<>();
     Integer maxCounts = 0;
     Map<Integer, Stack<Integer>> stack = new HashMap<>();
 
-    public FreqStack() {
-
-    }
+    public FreqStack() { }
 
     public void push(int val) {
         int x;

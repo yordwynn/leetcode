@@ -1,16 +1,9 @@
-package example
+package searchA2dMatrix
 
 import scala.annotation.tailrec
 
-object SearchMatrix {
-  def main(args: Array[String]): Unit = {
-    val x = Array(
-      Array(1, 3)
-    )
-
-    print(searchMatrix(x, 3))
-  }
-
+// 74. Search a 2D Matrix
+object Solution {
   def searchMatrix(matrix: Array[Array[Int]], target: Int): Boolean = {
     val m = matrix.length
     val n = matrix(0).length
