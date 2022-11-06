@@ -26,30 +26,30 @@ object Solution {
       words: Array[String]
   ): List[String] = {
     val visited = Array.fill(board.length, board(0).length)(false)
+    val res = scala.collection.mutable.Set[String]()
 
     def backtrack(
         i: Int,
         j: Int,
         trie: Trie
-    ): Set[String] = {
+    ): Unit = {
       if (
         i < 0 || i >= board.length || j < 0 || j >= board(0).length || visited(
           i
         )(j)
       )
-        Set.empty[String]
+        ()
       else {
         trie
           .get(board(i)(j))
-          .fold(Set.empty[String]) { t =>
+          .fold(()) { t =>
             visited(i)(j) = true
-            val res = t.index.fold(Set.empty[String])(id => Set(words(id))) ++
-              backtrack(i - 1, j, t) ++
-              backtrack(i, j + 1, t) ++
-              backtrack(i + 1, j, t) ++
-              backtrack(i, j - 1, t)
+            t.index.fold(())(id => res.add(words(id)))
+            backtrack(i - 1, j, t)
+            backtrack(i, j + 1, t)
+            backtrack(i + 1, j, t)
+            backtrack(i, j - 1, t)
             visited(i)(j) = false
-            res
           }
       }
     }
@@ -62,9 +62,11 @@ object Solution {
     val n = board.length
     val m = board(0).length
 
-    (for {
+    for {
       i <- 0 until n
       j <- 0 until m
-    } yield backtrack(i, j, trie)).toSet.flatten.toList
+    } yield backtrack(i, j, trie)
+
+    res.toList
   }
 }
