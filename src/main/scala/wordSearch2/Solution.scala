@@ -42,13 +42,11 @@ object Solution {
           .get(board(i)(j))
           .fold(Set.empty[String]) { t =>
             visited(i)(j) = true
-            val r = t.index.fold(Set.empty[String])(id => Set(words(id))) ++
+            t.index.fold(Set.empty[String])(id => Set(words(id))) ++
               backtrack(i - 1, j, visited, t) ++
               backtrack(i, j + 1, visited, t) ++
               backtrack(i + 1, j, visited, t) ++
               backtrack(i, j - 1, visited, t)
-            visited(i)(j) = false
-            r
           }
       }
     }
