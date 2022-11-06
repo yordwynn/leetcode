@@ -25,10 +25,11 @@ object Solution {
       board: Array[Array[Char]],
       words: Array[String]
   ): List[String] = {
+    val visited = Array.fill(board.length, board(0).length)(false)
+
     def backtrack(
         i: Int,
         j: Int,
-        visited: Array[Array[Boolean]],
         trie: Trie
     ): Set[String] = {
       if (
@@ -42,11 +43,13 @@ object Solution {
           .get(board(i)(j))
           .fold(Set.empty[String]) { t =>
             visited(i)(j) = true
-            t.index.fold(Set.empty[String])(id => Set(words(id))) ++
-              backtrack(i - 1, j, visited, t) ++
-              backtrack(i, j + 1, visited, t) ++
-              backtrack(i + 1, j, visited, t) ++
-              backtrack(i, j - 1, visited, t)
+            val res = t.index.fold(Set.empty[String])(id => Set(words(id))) ++
+              backtrack(i - 1, j, t) ++
+              backtrack(i, j + 1, t) ++
+              backtrack(i + 1, j, t) ++
+              backtrack(i, j - 1, t)
+            visited(i)(j) = false
+            res
           }
       }
     }
@@ -62,11 +65,6 @@ object Solution {
     (for {
       i <- 0 until n
       j <- 0 until m
-    } yield backtrack(
-      i,
-      j,
-      Array.fill(board.length, board(0).length)(false),
-      trie
-    )).toSet.flatten.toList
+    } yield backtrack(i, j, trie)).toSet.flatten.toList
   }
 }
